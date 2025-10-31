@@ -1,0 +1,16 @@
+.main-content {
+    padding-top: 2rem;
+}
+
+.home-container {
+    margin-top: 6rem;
+}
+
+.home-container h1 {
+    font-weight: 700;
+    color: #4a7eb2
+}
+
+.home-container p {
+    color: #000000;
+}
