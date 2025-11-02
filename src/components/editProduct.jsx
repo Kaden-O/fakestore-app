@@ -18,6 +18,8 @@ function EditProduct() {
 
     useEffect(() => {
         const fetchProduct = async () => {
+
+            // Pre-fills the form with the existing product data
             try {
                 setError(null);
                 const response = await axios.get(`https://fakestoreapi.com/products/${id}`);
@@ -43,6 +45,7 @@ function EditProduct() {
         setMessage(null);
         setError(null);
 
+        // Allows users to update an existing product
         try {
             const response = await axios.put(`https://fakestoreapi.com/products/${id}`, {
                 title,
@@ -50,7 +53,7 @@ function EditProduct() {
                 description,
                 category,
             });
-
+            // Displays a success message after updating
             setMessage(`✅ Product "${response.data.title}" updated successfully!`);
         } catch (err) {
             setError("❌ Failed to update product. Please try again.");
@@ -72,9 +75,11 @@ function EditProduct() {
         <Container className="mt-5" style={{ maxWidth: "600px" }}>
             <h2 className="text-center mb-4">Edit Product</h2>
 
+            {/* Displays a success message after updating */}
             {message && <Alert variant="success">{message}</Alert>}
             {error && <Alert variant="danger">{error}</Alert>}
 
+            {/* Pre-filled form for editing */}
             <Form onSubmit={handleSubmit}>
 
                 <Form.Group className="mb-3" controlId="formTitle">
@@ -118,6 +123,7 @@ function EditProduct() {
                     /> 
                 </Form.Group>
 
+                {/* Button for submitting the updates for the existing product */}
                 <div className="text-center">
                     <Button variant="success" type="submit" disabled={updating}>
                         {updating ? (

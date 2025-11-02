@@ -10,6 +10,7 @@ function ProductListing() {
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
+    // Fetches products from FakeStoreAPI
     const fetchProducts = async () => {
         try {
             setLoading(true);
@@ -23,6 +24,7 @@ function ProductListing() {
         }
     };
 
+    // Fetches products on mount
     useEffect(() => {
         fetchProducts();
     }, []);
@@ -50,12 +52,15 @@ function ProductListing() {
     }
 
     return (
+
+        // Displays products in a visually structered layout 
         <Container className="mt-5">
             <h2 className="text-center mb-4">Product Listings</h2>
             <Row>
                 {products.map((product) => (
                     <Col key={product.id} sm={6} md={4} lg={3} className="mb-4">
                         <Card className="h-100 shadow-sm">
+                            {/* Show's Image */}
                             <Card.Img
                                 variant="top"
                                 src={product.image}
@@ -64,6 +69,7 @@ function ProductListing() {
                             />
                             <Card.Body className="d-flex flex-column justify-content-between">
                                 <div>
+                                    {/* Show's Title */}
                                 <Card.Title
                                     style={{
                                         fontSize: "1rem",
@@ -74,8 +80,10 @@ function ProductListing() {
                                 >
                                     {product.title}
                                 </Card.Title>
+                                {/* Show's Price */}
                                 <Card.Text className="fw-bold">${product.price}</Card.Text>
                                 </div>
+                                {/* Button to navigate to Product Details page */}
                                 <Button
                                     variant="primary"
                                     onClick={() => handleViewDetails(product.id)}

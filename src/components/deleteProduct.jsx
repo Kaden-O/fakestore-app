@@ -30,10 +30,14 @@ function DeleteProduct() {
         setLoading(true);
         setError(null);
 
+        // Allows users to delete a product
         try {
             await axios.delete(`https://fakestoreapi.com/products/${id}`);
+            
+            // Displays success message letting user know product has been deleted successfully
             setMessage("✅ Product deleted successfully!");
 
+            // Automatically re-directs users back to Product Listing page
             setTimeout(() => navigate("/products"), 2000);
         } catch (err) {
             setError("❌ Failed to delete product. Please try again.");
@@ -52,6 +56,7 @@ function DeleteProduct() {
             {error && <Alert variant="danger">{error}</Alert>}
             {message && <Alert variant="success">{message}</Alert>}
 
+            {/* Confirmation Modal before deletion */}
             {!message && product && (
                 <Modal show={showModal} onHide={handleClose} centered>
                     <Modal.Header closeButton>

@@ -19,6 +19,7 @@ function AddProduct() {
         setMessage(null);
         setError(null);
 
+        // Create's new product using POST request
         try {
             const response = await axios.post("https://fakestoreapi.com/products", {
                 title,
@@ -27,9 +28,11 @@ function AddProduct() {
                 category,
             });
 
+            // Displays a confirmation message when the product is "created"
             setMessage(`✅ Product "${response.data.title}" created successfully!`);
 
         } catch (err) {
+            // Displays a error message if POST request fails to submit
             setError("❌ Failed to create product. Please try again.");
         } finally {
             setLoading(false);
@@ -45,6 +48,7 @@ function AddProduct() {
 
             <Form onSubmit={handleSubmit}>
 
+                {/* Form Field for product title */}
                 <Form.Group className="mb-3" controlId="formTitle">
                     <Form.Label>Product Title</Form.Label>
                     <Form.Control
@@ -56,6 +60,7 @@ function AddProduct() {
                 />
                 </Form.Group>
 
+                {/* Form Field for price */}
                 <Form.Group className="mb-3" controlId="formPrice">
                     <Form.Label>Price</Form.Label>
                     <Form.Control
@@ -67,6 +72,7 @@ function AddProduct() {
                 />
                 </Form.Group>
 
+                {/* Form Field for category */}
                 <Form.Group className="mb-3" controlId="formCategory">
                     <Form.Label>Category</Form.Label>
                     <Form.Control
@@ -78,6 +84,7 @@ function AddProduct() {
                 />
                 </Form.Group>
 
+                {/* Form Field for description */}
                 <Form.Group className="mb-3" controlId="formDescription">
                     <Form.Label>Description</Form.Label>
                     <Form.Control
@@ -90,6 +97,7 @@ function AddProduct() {
                 /> 
                 </Form.Group>
 
+                {/* Button to submit the form */}
                 <div className="text-center">
                     <Button variant="primary" type="submit" disabled={loading}>
                         {loading ? (

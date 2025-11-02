@@ -16,6 +16,8 @@ function App() {
     <Router>
       <NavbarComponent />
       <div className="main-content">
+
+        {/* Navigation Links and their routes */}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/products" element={<ProductListing />} />

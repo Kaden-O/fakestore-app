@@ -1,16 +1,68 @@
-# React + Vite
+Fakestore Project 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack-simulated React CRUD application that interacts with the FakeStoreAPI.  
+Users can view, add, edit, and delete products in a clean, responsive UI built with React Bootstrap.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Features
 
-## React Compiler
+## Navigation & Routing
+- Built with React Router DOM
+- Top-fixed responsive Navbar with navigation links
+- Collapses into hamburger icon for mobile view and is mobile responsive
+- Routes for:
+  - `/` → Home page  
+  - `/products` → Product Listings  
+  - `/products/:id` → Product Details  
+  - `/add-product` → Add Product  
+  - `/products/:id/edit` → Edit Product  
+  - `/products/:id/delete` → Delete Product  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Home Page
+- Hero section with background image and welcome text  
+- “View Products” button navigates directly to the product listings page
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Product Listings
+- Fetches products from FakeStoreAPI
+- Displays items in a responsive grid using React Bootstrap Cards
+- Includes loading and error states
+- “View Details” button navigates to the detailed product page
+
+---
+
+## Product Details
+- Displays detailed information about a single product
+- Uses useParams() to extract the product ID from the URL
+- Handles loading and error messages
+- Buttons for:
+  - **Add to Cart**
+  - **Edit Product** → navigates to edit form
+  - **Delete Product** → navigates to confirmation modal
+
+---
+
+## Add Product
+- Form built with React Bootstrap
+- Fields: Title, Price, Description, Category
+- Submits new product data via POST request to FakeStoreAPI
+- Displays success or error messages on submission  
+
+---
+
+## Edit Product
+- Fetches existing product data via GET
+- Pre-fills the form with current details
+- Sends PUT request to FakeStoreAPI to simulate update
+- Displays success message upon submission
+
+---
+
+## Delete Product
+- Confirmation modal ensures safe deletion
+- Sends DELETE request to FakeStoreAPI
+- Displays success message and redirects to product listings

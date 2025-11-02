@@ -28,11 +28,14 @@ function HomePage() {
         <Container className="home-container text-center">
             <Row className="justify-content-center">
                 <Col md={8}>
+                {/* Welcome message and introduction to the store */}
                     <h1 className="mb-4">Welcome to the Fake Store 🛍️</h1>
                     <p className="lead fw-semibold">Discover the best products for all your needs from clothes 
                         to the best home accessories and everything inbetween!
                     </p>
                     <p>Browse products and discover what you've always been waiting for!</p>
+
+                    {/* Button to navigate to Product Listing page */}
                     <Button variant="primary" size="lg" className="mt-3" onClick={handleGoToProducts}>View Products</Button>
                 </Col>
             </Row>
